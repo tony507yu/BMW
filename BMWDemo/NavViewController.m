@@ -13,6 +13,8 @@
 @end
 
 @implementation NavViewController
+@synthesize movieView;
+@synthesize player;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,7 +25,8 @@
 //    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(287, 177, 15, 15)];
     imgView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 405, 15, 15)];
     
-    imgView.image = [UIImage imageNamed:@"first"];
+    // 小车的图标
+    imgView.image = [UIImage imageNamed:@"end.png"];
     [self.view addSubview:imgView];
     
     [UIView animateWithDuration:4 animations:^{
@@ -138,7 +141,9 @@
         }
         
     }];
-    
+    [[ NSNotificationCenter   defaultCenter]  addObserver:self
+                                                selector : @selector(movieFinishedCallback:) name: MPMoviePlayerPlaybackDidFinishNotification object:player];
+    self.movieView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -185,12 +190,27 @@
 
 - (IBAction)click1:(id)sender {
     // 评分按钮
+    self.player = [[MPMoviePlayerController alloc] init];
+    NSString * moviePath = [[NSBundle mainBundle] pathForResource:@"movie1" ofType:@"mov"];
+    self.player.contentURL = [NSURL fileURLWithPath:moviePath];
+    // END:viewDidLoad1
     
+	 	 // START_HIGHLIGHT
+    self.player.view.frame = self.movieView.bounds;
+    self.player.view.autoresizingMask =
+    UIViewAutoresizingFlexibleWidth |
+    UIViewAutoresizingFlexibleHeight;
+    [self.player prepareToPlay];
+    
+    [self.movieView addSubview:player.view];
+    self.movieView.hidden = NO;
+    [self.player play];
 }
 
 - (IBAction)click2:(id)sender {
     // 播放音频按钮
-    
+    [self showHudCompleteWithMessage:@"+3"];
+    [HUD hide:YES afterDelay:3];
 }
 
 - (IBAction)click3:(id)sender {
@@ -200,7 +220,21 @@
 
 - (IBAction)click4:(id)sender {
     // 评分按钮
+    self.player = [[MPMoviePlayerController alloc] init];
+    NSString * moviePath = [[NSBundle mainBundle] pathForResource:@"movie1" ofType:@"mov"];
+    self.player.contentURL = [NSURL fileURLWithPath:moviePath];
+    // END:viewDidLoad1
     
+	 	 // START_HIGHLIGHT
+    self.player.view.frame = self.movieView.bounds;
+    self.player.view.autoresizingMask =
+    UIViewAutoresizingFlexibleWidth |
+    UIViewAutoresizingFlexibleHeight;
+    [self.player prepareToPlay];
+    
+    [self.movieView addSubview:player.view];
+    self.movieView.hidden = NO;
+    [self.player play];
 }
 
 - (IBAction)click5:(id)sender {
@@ -215,7 +249,21 @@
 
 - (IBAction)click7:(id)sender {
     // 评分按钮
+    self.player = [[MPMoviePlayerController alloc] init];
+    NSString * moviePath = [[NSBundle mainBundle] pathForResource:@"movie1" ofType:@"mov"];
+    self.player.contentURL = [NSURL fileURLWithPath:moviePath];
+    // END:viewDidLoad1
     
+	 	 // START_HIGHLIGHT
+    self.player.view.frame = self.movieView.bounds;
+    self.player.view.autoresizingMask =
+    UIViewAutoresizingFlexibleWidth |
+    UIViewAutoresizingFlexibleHeight;
+    [self.player prepareToPlay];
+    
+    [self.movieView addSubview:player.view];
+     self.movieView.hidden = NO;
+    [self.player play];
 }
 
 - (IBAction)click8:(id)sender {
@@ -226,4 +274,85 @@
     // 播放视频按钮
     
 }
+
+- (void)movieFinishedCallback:(id)userInfo{
+    NSArray * views = [self.movieView subviews];
+    for (UIView * view in views) {
+        [view removeFromSuperview];
+    }
+    self.movieView.hidden = YES;
+}
+
+# pragma mark -
+# pragma mark HUD methods
+
+-(void)showHudWithSimpleMessage:(NSString *)message
+{
+    if (!HUD){
+        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.navigationController.view addSubview:HUD];
+    }
+    HUD.mode = MBProgressHUDAnimationFade;
+    HUD.labelText = message;
+    HUD.delegate = self;
+    [HUD show:YES];
+}
+
+
+
+-(void)showHudWithMessage:(NSString *)message
+{
+    if (!HUD){
+        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.navigationController.view addSubview:HUD];
+    }
+    HUD.mode = MBProgressHUDAnimationFade;
+    HUD.labelText = message;
+    HUD.delegate = self;
+    [HUD show:YES];
+}
+
+-(void)showHudThenHideWithMessage:(NSString *)message
+{
+    if (!HUD){
+        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.navigationController.view addSubview:HUD];
+    }
+    HUD.mode = MBProgressHUDAnimationFade;
+    HUD.labelText = message;
+    [HUD show:YES];
+    HUD.delegate = self;
+    [HUD hide:YES afterDelay:3];
+}
+
+-(void)showHudCompleteWithMessage:(NSString *)message
+{
+    if (!HUD){
+        HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.navigationController.view addSubview:HUD];
+    }
+    HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]];
+    // Set custom view mode
+    HUD.mode = MBProgressHUDModeCustomView;
+    HUD.delegate = self;
+    HUD.labelText = message ? message : NSLocalizedString(@"Completed", @"Hubview message completed");
+    [HUD show:YES];
+    [HUD hide:YES afterDelay:1.5];
+}
+
+- (void)hideHud
+{
+    if(HUD){
+        [HUD hide:YES];
+    }
+}
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+    // Remove HUD from screen when the HUD was hidded
+    [HUD removeFromSuperview];
+    HUD = nil;
+}
+
 @end

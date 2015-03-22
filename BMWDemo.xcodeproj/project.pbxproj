@@ -29,6 +29,12 @@
 		7231587B1A71244200C3B23F /* start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7231586A1A71244200C3B23F /* start@2x.png */; };
 		7231587C1A71244200C3B23F /* SYNC.png in Resources */ = {isa = PBXBuildFile; fileRef = 7231586B1A71244200C3B23F /* SYNC.png */; };
 		7231587D1A71244200C3B23F /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 7231586C1A71244200C3B23F /* up.png */; };
+		729438001ABE70F7000DB90F /* movie1.mov in Resources */ = {isa = PBXBuildFile; fileRef = 729437FF1ABE70F7000DB90F /* movie1.mov */; };
+		729438021ABE722A000DB90F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729438011ABE722A000DB90F /* Foundation.framework */; };
+		729438041ABE723E000DB90F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729438031ABE723E000DB90F /* UIKit.framework */; };
+		729438061ABE7248000DB90F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729438051ABE7248000DB90F /* CoreGraphics.framework */; };
+		729438081ABE724E000DB90F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729438071ABE724E000DB90F /* MediaPlayer.framework */; };
+		729438271ABE765A000DB90F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7294381E1ABE765A000DB90F /* MBProgressHUD.m */; };
 		72DB02CE1A7386F10049A96C /* more_setting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72DB02CD1A7386F10049A96C /* more_setting@2x.png */; };
 		72DB02D01A7388390049A96C /* head@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 72DB02CF1A7388390049A96C /* head@2x.png */; };
 		72DB02D31A7394260049A96C /* PersonInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB02D21A7394260049A96C /* PersonInfoTableViewController.m */; };
@@ -81,6 +87,13 @@
 		7231586A1A71244200C3B23F /* start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "start@2x.png"; path = "BMWDemo/images/start@2x.png"; sourceTree = "<group>"; };
 		7231586B1A71244200C3B23F /* SYNC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SYNC.png; path = BMWDemo/images/SYNC.png; sourceTree = "<group>"; };
 		7231586C1A71244200C3B23F /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = up.png; path = BMWDemo/images/up.png; sourceTree = "<group>"; };
+		729437FF1ABE70F7000DB90F /* movie1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = movie1.mov; sourceTree = "<group>"; };
+		729438011ABE722A000DB90F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		729438031ABE723E000DB90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		729438051ABE7248000DB90F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		729438071ABE724E000DB90F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7294381D1ABE765A000DB90F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		7294381E1ABE765A000DB90F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		72DB02CD1A7386F10049A96C /* more_setting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "more_setting@2x.png"; path = "BMWDemo/images/more_setting@2x.png"; sourceTree = "<group>"; };
 		72DB02CF1A7388390049A96C /* head@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "head@2x.png"; path = "BMWDemo/images/head@2x.png"; sourceTree = "<group>"; };
 		72DB02D11A7394260049A96C /* PersonInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonInfoTableViewController.h; path = ../PersonInfoTableViewController.h; sourceTree = "<group>"; };
@@ -103,6 +116,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				729438081ABE724E000DB90F /* MediaPlayer.framework in Frameworks */,
+				729438061ABE7248000DB90F /* CoreGraphics.framework in Frameworks */,
+				729438041ABE723E000DB90F /* UIKit.framework in Frameworks */,
+				729438021ABE722A000DB90F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +147,7 @@
 			children = (
 				723158311A71214200C3B23F /* BMWDemo */,
 				7231584E1A71214300C3B23F /* BMWDemoTests */,
+				729438091ABE7254000DB90F /* Frameworks */,
 				723158301A71214200C3B23F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -146,6 +164,7 @@
 		723158311A71214200C3B23F /* BMWDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7294380A1ABE765A000DB90F /* Vendor */,
 				723158361A71214200C3B23F /* AppDelegate.h */,
 				723158371A71214200C3B23F /* AppDelegate.m */,
 				7231583F1A71214200C3B23F /* Main.storyboard */,
@@ -155,6 +174,7 @@
 				721E1C461A7A1A9A00A5C48A /* Views */,
 				72DC18E31A78BDBF00A93C39 /* ViewControllers */,
 				7231585B1A71242F00C3B23F /* Images */,
+				729437FE1ABE70F7000DB90F /* movies */,
 				723158321A71214200C3B23F /* Supporting Files */,
 			);
 			path = BMWDemo;
@@ -214,6 +234,42 @@
 			);
 			name = Images;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		729437FE1ABE70F7000DB90F /* movies */ = {
+			isa = PBXGroup;
+			children = (
+				729437FF1ABE70F7000DB90F /* movie1.mov */,
+			);
+			path = movies;
+			sourceTree = "<group>";
+		};
+		729438091ABE7254000DB90F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				729438071ABE724E000DB90F /* MediaPlayer.framework */,
+				729438051ABE7248000DB90F /* CoreGraphics.framework */,
+				729438031ABE723E000DB90F /* UIKit.framework */,
+				729438011ABE722A000DB90F /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7294380A1ABE765A000DB90F /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				7294381C1ABE765A000DB90F /* MBProgressHUD */,
+			);
+			path = Vendor;
+			sourceTree = SOURCE_ROOT;
+		};
+		7294381C1ABE765A000DB90F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7294381D1ABE765A000DB90F /* MBProgressHUD.h */,
+				7294381E1ABE765A000DB90F /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		72DC18E31A78BDBF00A93C39 /* ViewControllers */ = {
@@ -344,6 +400,7 @@
 				723158731A71244200C3B23F /* park-stroke@2x.png in Resources */,
 				723158741A71244200C3B23F /* personal-fill@2x.png in Resources */,
 				723158751A71244200C3B23F /* personal-stroke@2x.png in Resources */,
+				729438001ABE70F7000DB90F /* movie1.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,6 +425,7 @@
 				721E1C451A7A1A2900A5C48A /* MapOverlayView.m in Sources */,
 				72DB02E21A73A34B0049A96C /* SearchViewController.m in Sources */,
 				723158351A71214200C3B23F /* main.m in Sources */,
+				729438271ABE765A000DB90F /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +549,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BMWDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/LibBPush",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -501,6 +563,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BMWDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/LibBPush",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

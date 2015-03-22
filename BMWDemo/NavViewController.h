@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import "MBProgressHUD.h"
 
-@interface NavViewController : UIViewController {
+@interface NavViewController : UIViewController<MBProgressHUDDelegate> {
     UIImageView *imgView;
+    UIView * movieView;
+    // START_HIGHLIGHT
+    MPMoviePlayerController *player;
+    MBProgressHUD * HUD;
+
 }
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (retain, nonatomic) IBOutlet UIView *movieView;
+@property (nonatomic, retain) MPMoviePlayerController *player;
 
 @property (weak, nonatomic) IBOutlet UIButton *btn1;
 @property (weak, nonatomic) IBOutlet UIButton *btn2;
